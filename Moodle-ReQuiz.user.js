@@ -1,14 +1,14 @@
 // ==UserScript==
 // @author      PotcFdk
 // @name        Moodle ReQuiz
-// @namespace   https://github.com/PotcFdk/Moodle-ReQuiz
+// @namespace   https://github.com/hockyy/Moodle-ReQuiz
 // @description Allows you to re-do Moodle quizzes by hiding your answers.
 // @include     http://*/mod/quiz/review.php?attempt=*
 // @include     https://*/mod/quiz/review.php?attempt=*
-// @version     0.0.1
+// @version     0.0.2
 // @grant       none
-// @downloadURL https://raw.githubusercontent.com/PotcFdk/Moodle-ReQuiz/master/Moodle-ReQuiz.user.js
-// @updateURL   https://raw.githubusercontent.com/PotcFdk/Moodle-ReQuiz/master/Moodle-ReQuiz.meta.js
+// @downloadURL https://raw.githubusercontent.com/hockyy/Moodle-ReQuiz/master/Moodle-ReQuiz.user.js
+// @updateURL   https://raw.githubusercontent.com/hockyy/Moodle-ReQuiz/master/Moodle-ReQuiz.meta.js
 // ==/UserScript==
 
 /*
@@ -98,6 +98,30 @@ function clearTable (obj)
 }
 
 ///
+
+const symbolCorrect = document.querySelectorAll('[title="Correct"]');
+
+for(const i of symbolCorrect){
+    i.remove();
+}
+
+const symbolIncorrect = document.querySelectorAll('[title="Incorrect"]');
+
+for(const i of symbolIncorrect){
+    i.remove();
+}
+
+const feedbackCorrect = document.querySelectorAll('.specificfeedback');
+
+for(const i of feedbackCorrect){
+    i.remove();
+}
+
+const outcomeCorrect = document.querySelectorAll('.outcome');
+
+for(const i of outcomeCorrect){
+    i.remove();
+}
 
 for (var q = 1; ; q++)
 {
